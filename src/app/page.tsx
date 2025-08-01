@@ -1,7 +1,10 @@
+import Sidebar from '@/components/layout/Sidebar';
+
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <main>
+      <Sidebar />
+      <main className="lg:ml-2/5 xl:ml-1/3">
         <h1 className="text-4xl font-bold text-center pt-20">
           Portfolio Website
         </h1>
