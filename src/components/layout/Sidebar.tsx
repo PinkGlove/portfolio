@@ -1,11 +1,14 @@
+'use client';
+
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { useScrollSpy } from '@/lib/hooks/useScrollSpy';
 
 const navigationItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'ABOUT', href: '#about', id: 'about' },
+  { name: 'EXPERIENCE', href: '#experience', id: 'experience' },
+  { name: 'PROJECTS', href: '#projects', id: 'projects' },
+  { name: 'SKILLS', href: '#skills', id: 'skills' },
+  { name: 'CONTACT', href: '#contact', id: 'contact' },
 ];
 
 const socialLinks = [
@@ -15,32 +18,52 @@ const socialLinks = [
 ];
 
 export default function Sidebar() {
+  const activeSection = useScrollSpy(
+    navigationItems.map(item => item.id)
+  );
+
   return (
     <aside 
-      className="hidden lg:block fixed left-0 top-0 h-screen bg-white border-r border-gray-200 z-10 lg:w-2/5 xl:w-1/3"
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-[40%] min-w-[400px] bg-white border-r border-gray-200 z-10 items-center justify-center"
     >
-      <div className="flex flex-col h-full px-16 py-20 justify-center items-center text-center">
-        {/* Top Section - Name */}
-        <div className="mb-24">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+      <div className="flex flex-col h-full justify-between py-20 max-w-md">
+        {/* Top Section - Name and Title */}
+        <div className="mt-8">
+          <h1 className="text-5xl font-bold text-gray-900 mb-3">
             Zinan Guo
           </h1>
-          <p className="text-xl text-gray-600 font-light">
+          <p className="text-xl text-gray-700 mb-6">
             Full Stack Developer
+          </p>
+          <p className="text-base text-gray-500 leading-relaxed max-w-xs">
+            I build things.
           </p>
         </div>
         
-        {/* Middle Section - Navigation Menu */}
-        <nav className="mb-24">
-          <ul className="space-y-12">
-            {navigationItems.map((item) => (
-              <li key={item.name}>
+        {/* Middle Section - Navigation */}
+        <nav className="my-8">
+          <ul>
+            {navigationItems.map((item, index) => (
+              <li key={item.name} className={index !== navigationItems.length - 1 ? 'mb-8' : ''}>
                 <a
                   href={item.href}
-                  className="flex items-center justify-center text-gray-700 hover:text-blue-600 transition-all duration-300 group py-2"
+                  className={`group flex items-center py-1 transition-all duration-200 ${
+                    activeSection === item.id
+                      ? 'text-blue-600'
+                      : 'text-gray-500 hover:text-gray-900'
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
-                  <span className="w-20 h-px bg-gray-300 group-hover:bg-blue-600 group-hover:w-28 transition-all duration-300 mr-8"></span>
-                  <span className="text-lg font-medium uppercase tracking-wide">
+                  <span className={`inline-block h-px transition-all duration-200 mr-4 ${
+                    activeSection === item.id
+                      ? 'w-16 bg-blue-600'
+                      : 'w-8 bg-gray-400 group-hover:w-16 group-hover:bg-gray-600'
+                  }`}></span>
+                  <span className="text-xs font-semibold tracking-widest">
                     {item.name}
                   </span>
                 </a>
@@ -50,8 +73,8 @@ export default function Sidebar() {
         </nav>
 
         {/* Bottom Section - Social Icons */}
-        <div>
-          <div className="flex space-x-8 mb-8 justify-center">
+        <div className="mb-8">
+          <div className="flex items-center space-x-6">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -60,23 +83,21 @@ export default function Sidebar() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 p-2"
+                  className="text-gray-500 hover:text-blue-600 transition-colors duration-200"
                   aria-label={social.name}
                 >
-                  <Icon size={28} />
+                  <Icon size={20} />
                 </a>
               );
             })}
-          </div>
-          <div className="flex justify-center">
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-lg text-gray-600 hover:text-blue-600 transition-all duration-300 font-medium py-2 px-4 rounded-lg hover:bg-gray-50"
+              className="text-gray-500 hover:text-blue-600 transition-colors duration-200"
+              aria-label="Resume"
             >
-              <ExternalLink size={20} className="mr-4" />
-              <span className="tracking-wide">Resume</span>
+              <ExternalLink size={20} />
             </a>
           </div>
         </div>

@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Sidebar />
-      <main className="lg:ml-2/5 xl:ml-1/3">
+      <main className="lg:ml-[40%]">
         <h1 className="text-4xl font-bold text-center pt-20">
           Portfolio Website
         </h1>
