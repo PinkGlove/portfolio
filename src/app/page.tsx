@@ -1,17 +1,24 @@
 import Sidebar from '@/components/layout/Sidebar';
+import MainContent from '@/components/layout/MainContent';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Experience from '@/components/sections/Experience';
+import Skills from '@/components/sections/Skills';
+import Projects from '@/components/sections/Projects';
+import Contact from '@/components/sections/Contact';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Sidebar />
-      <main className="lg:ml-[40%]">
-        <h1 className="text-4xl font-bold text-center pt-20">
-          Portfolio Website
-        </h1>
-        <p className="text-center mt-4 text-gray-600">
-          Coming soon...
-        </p>
-      </main>
+      <MainContent>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </MainContent>
     </div>
   );
 }
