@@ -7,14 +7,11 @@ const navigationItems = [
   { name: 'ABOUT', href: '#about', id: 'about' },
   { name: 'EXPERIENCE', href: '#experience', id: 'experience' },
   { name: 'PROJECTS', href: '#projects', id: 'projects' },
-  { name: 'SKILLS', href: '#skills', id: 'skills' },
-  { name: 'CONTACT', href: '#contact', id: 'contact' },
 ];
 
 const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/PinkGlove', icon: Github },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/zinanguo', icon: Linkedin },
-  { name: 'Email', href: 'mailto:zinan.guo@example.com', icon: Mail },
 ];
 
 export default function Sidebar() {
@@ -22,9 +19,16 @@ export default function Sidebar() {
     navigationItems.map(item => item.id)
   );
 
+  // Email obfuscation to prevent spambots - opens in new tab
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const email = ['zinan', '.', 'guo', '@', 'gmail', '.', 'com'].join('');
+    window.open('mailto:' + email, '_blank');
+  };
+
   return (
     <aside 
-      className="hidden lg:flex fixed left-0 top-0 h-screen w-[40%] min-w-[400px] bg-white border-r border-gray-200 z-10 items-center justify-center"
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-[35%] min-w-[400px] bg-white border-r border-gray-200 z-10 items-center justify-center"
     >
       <div className="flex flex-col h-full justify-between py-20 max-w-md">
         {/* Top Section - Name and Title */}
@@ -90,6 +94,14 @@ export default function Sidebar() {
                 </a>
               );
             })}
+            <button
+              onClick={handleEmailClick}
+              className="text-gray-500 hover:text-blue-600 transition-colors duration-200"
+              aria-label="Email"
+              type="button"
+            >
+              <Mail size={20} />
+            </button>
             <a
               href="/resume.pdf"
               target="_blank"

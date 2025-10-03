@@ -4,8 +4,8 @@ interface MainContentProps {
 
 export default function MainContent({ children }: MainContentProps) {
   return (
-    <main className="lg:ml-[40%] min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-8 lg:px-16">
+    <main className="lg:ml-[35%] min-h-screen bg-white flex justify-center">
+      <div className="w-full max-w-5xl px-8 lg:px-12">
         {children}
       </div>
     </main>

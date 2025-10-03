@@ -8,7 +8,7 @@ export default function SectionWrapper({ children, id, className = '' }: Section
   return (
     <section 
       id={id} 
-      className={`py-20 lg:py-24 ${className}`}
+      className={`py-12 lg:py-16 ${className}`}
     >
       {children}
     </section>
