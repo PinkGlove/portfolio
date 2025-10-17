@@ -5,18 +5,37 @@ import SectionWrapper from '@/components/common/SectionWrapper';
 
 const experiences = [
   {
-    title: 'developer',
+    title: 'Software Application Developer II',
     company: 'Texas A&M Veterinary Medical Diagnostic Laboratory',
     location: 'College Station, TX',
-    date: 'Oct 2024 – Present',
+    date: 'Jul 2025 – Present',
     current: true,
+    summary: 'Leading development of a PCI-compliant Event Registration System with React/FastAPI, automating workflows that save 100+ hours annually while implementing secure payment processing and containerized microservices on Azure.',
     description: [
-      'Spearheading the design and implementation of a robust data warehouse solution to enhance financial health monitoring within the Business Intelligence team.',
-      'Developing and executing ETL processes using Python scripts, MySQL, and AWS services (S3, Glue, Lambda, etc.) to automate historical data integration workflows and generate automated data reports.',
-      'Utilizing MySQL, Power Automate, and Power Apps to efficiently retrieve, store, and manage comprehensive laboratory operational data.',
-      'Analyzing lab financial performance by transforming complex data into actionable insights, enabling informed, data-driven decision-making.'
+      'Leading the development of a comprehensive Event Registration System using React/Vite frontend and Python/FastAPI backend, automating the registration workflow that previously required 3-4 hours of manual processing per event (80% reduction, saving 100+ hours annually).',
+      'Architecting secure PCI-compliant payment processing through Bluefin PayConex iFrame integration, implementing a 6-phase tokenized payment flow verified by payment security experts that safely handles sensitive payment data without storing card information.',
+      'Designing containerized microservices architecture using Docker and deploying to Azure Container Apps with automated CI/CD pipelines via GitHub Actions, reducing deployment time from manual 2-hour processes to automated 15-minute deployments.',
+      'Developing event capacity management system with SQLAlchemy ORM and MySQL database, implementing database-level locking mechanisms and Nginx load balancer with rate limiting to prevent double-booking and ensure system stability during concurrent registrations.',
+      'Implementing comprehensive security measures across the entire application stack, passing Campus Guard vulnerability scanning and meeting university IT security standards for production deployment.'
     ],
-    technologies: ['Python', 'MySQL', 'AWS', 'Power Apps', 'ETL', 'Data Warehouse']
+    technologies: ['React', 'Vite', 'Python', 'FastAPI', 'Azure', 'Docker', 'GitHub Actions', 'MySQL', 'SQLAlchemy', 'Nginx'],
+    achievement: '80% faster registration processing, saving 100+ hours annually'
+  },
+  {
+    title: 'Student Assistant (Software Application Developer)',
+    company: 'Texas A&M Veterinary Medical Diagnostic Laboratory',
+    location: 'College Station, TX',
+    date: 'Oct 2024 – May 2025',
+    current: false,
+    summary: 'Spearheaded data warehouse solution design using Python and AWS (S3, Glue, Lambda) to automate financial reporting workflows, reducing report generation time by 97% and eliminating 150+ hours of annual manual work.',
+    description: [
+      'Spearheaded the design and implementation of a robust data warehouse solution to enhance the financial health monitoring of the laboratory, eliminating 150+ hours of annual manual reporting work.',
+      'Developed and executed ETL processes using Python scripts, MySQL, and AWS services (S3, Glue, Lambda, etc.) to automate historical data integration workflows and generate automated data reports, reducing report generation time from 3 hours to under 5 minutes (97% reduction).',
+      'Utilized MySQL, Power Automate, and Power Apps to efficiently retrieve, store, and manage the comprehensive laboratory operational data.',
+      'Analyzed lab financial performance by transforming complex data into actionable insights, enabling informed, data-driven decision-making.'
+    ],
+    technologies: ['Python', 'MySQL', 'AWS', 'S3', 'Glue', 'Lambda', 'Power Automate', 'Power Apps', 'ETL'],
+    achievement: '97% faster reporting and saved 150+ hours annually'
   },
   {
     title: 'Software Engineer Intern (Full Stack)',
@@ -24,11 +43,12 @@ const experiences = [
     location: 'Shenzhen, China',
     date: 'May 2024 – Aug 2024',
     current: false,
+    summary: 'Designed and implemented a process monitoring system using Go/Gin backend and Vue.js/TypeScript frontend, reducing fault detection time from 1-2 days to under 10 minutes for Tencent\'s Technology Engineering Group.',
     description: [
       'Designed and implemented a process monitoring system, enabling internal employees to monitor processes on the server and promptly receive alarms if their processes are terminated.',
-      'Utilized Go, Gin, and the tRPC framework in the backend, while employing Vue.js, TypeScript, and the TDesign Enterprise Design System in the frontend.',
-      'Leveraged MongoDB to store all relevant process data and followed RESTful API design principles.',
-      'Adopted by the Technology Engineering Group of Tencent, significantly reduced the detection time of the fault caused by process termination from 1-2 days to less than 10 minutes.'
+      'Utilized the TGET dial testing tool to verify whether a certain process is still running on the server, employed the Linux cmd client to automatically scan the existing processes on the server for users.',
+      'Utilized Go, Gin, and the tRPC framework in the backend, while employing Vue.js, TypeScript, and the TDesign Enterprise Design System in the frontend. Leveraged MongoDB to store all relevant process data and followed RESTful API design principles.',
+      'Adopted by the Technology Engineering Group of Tencent, significantly reduced the detection time of the fault caused by the termination of the process from 1-2 days to less than 10 minutes.'
     ],
     technologies: ['Go', 'Gin', 'Vue.js', 'TypeScript', 'MongoDB', 'tRPC', 'RESTful API'],
     achievement: 'Reduced fault detection time from 1-2 days to <10 minutes'
@@ -39,6 +59,7 @@ const experiences = [
     location: 'Beijing, China (Remote)',
     date: 'Jan 2024 – Apr 2024',
     current: false,
+    summary: 'Developed a Java/Spring Boot verification system for meteorological data tile integrity, improving data discrepancy identification efficiency by 40% through dual verification methods and PNG visualization tools.',
     description: [
       'Designed and developed a Java and Spring Boot-based system to verify the integrity of meteorological data segmentation into tiles, employed RESTful API design.',
       'Devised dual verification methodologies, including metrics comparison and original map comparison via PNG visualization, to ensure data correctness.',
@@ -70,9 +91,16 @@ export default function Experience() {
                   {/* Header */}
                   <div className="flex flex-wrap justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">
-                        {exp.title}
-                      </h3>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          {exp.title}
+                        </h3>
+                        {exp.current && (
+                          <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                            Current Position
+                          </span>
+                        )}
+                      </div>
                       <div className="flex items-center gap-4 mt-1">
                         <span className="flex items-center text-blue-600 font-medium">
                           <Building2 className="w-4 h-4 mr-1" />
@@ -91,14 +119,14 @@ export default function Experience() {
                       </span>
                     </div>
                   </div>
-                  
-                  {/* Current Badge */}
-                  {exp.current && (
-                    <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full mb-4">
-                      Current Position
-                    </span>
+
+                  {/* Summary */}
+                  {exp.summary && (
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                      {exp.summary}
+                    </p>
                   )}
-                  
+
                   {/* Description */}
                   <ul className="space-y-2 mb-4">
                     {exp.description.map((item, i) => (

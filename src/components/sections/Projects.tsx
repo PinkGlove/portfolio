@@ -6,21 +6,21 @@ import SectionWrapper from '@/components/common/SectionWrapper';
 const projects = [
   {
     title: 'Peer Review Scheduler',
-    description: 'A Java Spring Boot application that automates the peer review scheduling process for academic courses. The system intelligently assigns peer reviewers to students based on constraints and preferences, eliminating manual scheduling conflicts.',
+    description: 'A full-stack web application using Python/Flask backend and AngularJS frontend to automate peer review scheduling for academic courses, reducing manual scheduling time by 97% while eliminating human error in conflict detection.',
     longDescription: [
-      'Developed a constraint-based scheduling algorithm that considers student availability, workload balance, and conflict avoidance',
-      'Implemented RESTful APIs for seamless integration with existing academic management systems',
-      'Created an intuitive admin dashboard for managing review assignments and monitoring progress',
-      'Reduced scheduling time from hours to seconds while ensuring fair distribution of reviews'
+      'Architected a full-stack web application that reduced manual scheduling time by 97% (from 15-30 minutes to under 10 seconds) while eliminating human error in conflict detection',
+      'Developed a constraint satisfaction algorithm using Z3 Theorem Prover to generate optimal schedules for 500+ students per semester, ensuring zero scheduling conflicts through automated validation of room availability, time slot constraints, and peer review pairing rules',
+      'Implemented RESTful APIs with Flask blueprints following MVC architecture, enabling bidirectional data synchronization between preview and schedule tables with real-time validation and editing capabilities',
+      'Designed an intuitive single-page interface supporting dual input methods (Excel file upload and manual entry), featuring editable tables with interactive cell highlighting, one-click CSV export, and comprehensive error handling'
     ],
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'Algorithm Design', 'JUnit'],
-    github: 'https://github.com/PinkGlove/peer-review-scheduler',
+    technologies: ['Python', 'Flask', 'AngularJS', 'Z3 Theorem Prover', 'REST API', 'MVC', 'TypeScript'],
+    github: '',
     demo: '',
-    date: 'Sep 2024 - Dec 2024',
-    team: '4 members',
-    role: 'Backend Lead',
+    date: 'Feb 2023 - Apr 2023',
+    team: '6 members',
+    role: 'Project Lead',
     highlights: [
-      'Reduced scheduling time by 99%',
+      'Reduced scheduling time by 97%',
       'Handled 500+ students per semester',
       'Zero scheduling conflicts'
     ]
@@ -44,59 +44,62 @@ export default function Projects() {
                 hover:shadow-lg transition-all duration-300">
                 
                 {/* Project Header */}
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <div className="flex flex-wrap justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {project.description}
-                    </p>
+                    <div className="flex items-center gap-3 mt-1">
+                      <span className="flex items-center text-blue-600 font-medium">
+                        <Award className="w-4 h-4 mr-1" />
+                        {project.role}
+                      </span>
+                      {/* Links */}
+                      {(project.github || project.demo) && (
+                        <div className="flex gap-2">
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-500 hover:text-blue-600 transition-colors"
+                              aria-label="GitHub"
+                            >
+                              <Github size={18} />
+                            </a>
+                          )}
+                          {project.demo && (
+                            <a
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-500 hover:text-blue-600 transition-colors"
+                              aria-label="Demo"
+                            >
+                              <ExternalLink size={18} />
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  
-                  {/* Links */}
-                  <div className="flex gap-3 ml-4">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-blue-600 transition-colors"
-                        aria-label="GitHub"
-                      >
-                        <Github size={20} />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-blue-600 transition-colors"
-                        aria-label="Demo"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-                
-                {/* Project Details */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-3">
+                  <div className="flex flex-col items-end text-sm text-gray-500">
                     <span className="flex items-center">
-                      <Calendar className="w-3 h-3 mr-1" />
+                      <Calendar className="w-4 h-4 mr-1" />
                       {project.date}
                     </span>
-                    <span className="flex items-center">
-                      <Users className="w-3 h-3 mr-1" />
+                    <span className="flex items-center mt-1">
+                      <Users className="w-4 h-4 mr-1" />
                       {project.team}
                     </span>
-                    <span className="flex items-center">
-                      <Award className="w-3 h-3 mr-1" />
-                      {project.role}
-                    </span>
                   </div>
+                </div>
+
+                {/* Project Description */}
+                <div className="mb-4">
+                  <p className="text-gray-600 leading-relaxed mb-3">
+                    {project.description}
+                  </p>
                   
                   {/* Detailed Description */}
                   <ul className="space-y-2 mb-4">

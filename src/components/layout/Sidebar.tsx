@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { useScrollSpy } from '@/lib/hooks/useScrollSpy';
 
 const navigationItems = [
@@ -39,9 +39,11 @@ export default function Sidebar() {
           <p className="text-xl text-gray-700 mb-6">
             Full Stack Developer
           </p>
-          <p className="text-base text-gray-500 leading-relaxed max-w-xs">
-            I build things.
-          </p>
+          <div className="text-base text-gray-500 leading-relaxed max-w-xs space-y-2">
+            <p>I build things.</p>
+            <p>Mostly full-stack web applications with Python, React, and cloud infrastructure.</p>
+            <p>I like making systems faster and more reliable.</p>
+          </div>
         </div>
         
         {/* Middle Section - Navigation */}
@@ -102,15 +104,6 @@ export default function Sidebar() {
             >
               <Mail size={20} />
             </button>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-blue-600 transition-colors duration-200"
-              aria-label="Resume"
-            >
-              <ExternalLink size={20} />
-            </a>
           </div>
         </div>
       </div>
