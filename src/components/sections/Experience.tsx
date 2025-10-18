@@ -1,6 +1,8 @@
 'use client';
 
-import { Calendar, MapPin, Building2 } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, MapPin, Building2, ChevronDown } from 'lucide-react';
 import SectionWrapper from '@/components/common/SectionWrapper';
 
 const experiences = [
@@ -10,7 +12,7 @@ const experiences = [
     location: 'College Station, TX',
     date: 'Jul 2025 – Present',
     current: true,
-    summary: 'Leading development of a PCI-compliant Event Registration System with React/FastAPI, automating workflows that save 100+ hours annually while implementing secure payment processing and containerized microservices on Azure.',
+    summary: 'Leading development of a comprehensive Event Registration System with React/Vite frontend and Python/FastAPI backend, featuring PCI-compliant payment processing through Bluefin PayConex integration. Automated workflows that previously required 3-4 hours of manual processing per event, saving 100+ hours annually, while implementing CI/CD pipelines and database-level locking for concurrent registrations.',
     description: [
       'Leading the development of a comprehensive Event Registration System using React/Vite frontend and Python/FastAPI backend, automating the registration workflow that previously required 3-4 hours of manual processing per event (80% reduction, saving 100+ hours annually).',
       'Architecting secure PCI-compliant payment processing through Bluefin PayConex iFrame integration, implementing a 6-phase tokenized payment flow verified by payment security experts that safely handles sensitive payment data without storing card information.',
@@ -27,7 +29,7 @@ const experiences = [
     location: 'College Station, TX',
     date: 'Oct 2024 – May 2025',
     current: false,
-    summary: 'Spearheaded data warehouse solution design using Python and AWS (S3, Glue, Lambda) to automate financial reporting workflows, reducing report generation time by 97% and eliminating 150+ hours of annual manual work.',
+    summary: 'Spearheaded the design and implementation of a comprehensive data warehouse solution using Python and AWS services (S3, Glue, Lambda) to automate the laboratory\'s financial reporting workflows. Built ETL processes that reduced report generation time from 3 hours to under 5 minutes (97% reduction), eliminating 150+ hours of annual manual work while enabling data-driven decision-making.',
     description: [
       'Spearheaded the design and implementation of a robust data warehouse solution to enhance the financial health monitoring of the laboratory, eliminating 150+ hours of annual manual reporting work.',
       'Developed and executed ETL processes using Python scripts, MySQL, and AWS services (S3, Glue, Lambda, etc.) to automate historical data integration workflows and generate automated data reports, reducing report generation time from 3 hours to under 5 minutes (97% reduction).',
@@ -43,7 +45,7 @@ const experiences = [
     location: 'Shenzhen, China',
     date: 'May 2024 – Aug 2024',
     current: false,
-    summary: 'Designed and implemented a process monitoring system using Go/Gin backend and Vue.js/TypeScript frontend, reducing fault detection time from 1-2 days to under 10 minutes for Tencent\'s Technology Engineering Group.',
+    summary: 'Designed and implemented a full-stack process monitoring system using Go/Gin with tRPC framework for the backend and Vue.js/TypeScript with TDesign Enterprise Design System for the frontend. The system enables real-time server process monitoring with automatic alerting, reducing fault detection time from 1-2 days to under 10 minutes and was adopted by Tencent\'s Technology Engineering Group.',
     description: [
       'Designed and implemented a process monitoring system, enabling internal employees to monitor processes on the server and promptly receive alarms if their processes are terminated.',
       'Utilized the TGET dial testing tool to verify whether a certain process is still running on the server, employed the Linux cmd client to automatically scan the existing processes on the server for users.',
@@ -59,7 +61,7 @@ const experiences = [
     location: 'Beijing, China (Remote)',
     date: 'Jan 2024 – Apr 2024',
     current: false,
-    summary: 'Developed a Java/Spring Boot verification system for meteorological data tile integrity, improving data discrepancy identification efficiency by 40% through dual verification methods and PNG visualization tools.',
+    summary: 'Developed a Java/Spring Boot-based verification system to ensure meteorological data tile integrity using dual verification methodologies (metrics comparison and PNG visualization). Created customizable visualization tools for user-friendly map comparisons and integrated the system with Apache IoTDB, improving data discrepancy identification efficiency by 40% while significantly enhancing results clarity.',
     description: [
       'Designed and developed a Java and Spring Boot-based system to verify the integrity of meteorological data segmentation into tiles, employed RESTful API design.',
       'Devised dual verification methodologies, including metrics comparison and original map comparison via PNG visualization, to ensure data correctness.',
@@ -72,6 +74,12 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <SectionWrapper id="experience" className="min-h-screen">
       <div className="w-full">
@@ -79,18 +87,21 @@ export default function Experience() {
         <h2 className="text-3xl font-bold text-gray-900 mb-12">
           Experience
         </h2>
-        
+
         {/* Experience Items */}
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="group">
               {/* Content Card */}
-              <div className="p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400 
-                hover:shadow-lg transition-all duration-300">
+              <div
+                className="p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400
+                hover:shadow-lg transition-all duration-300 cursor-pointer"
+                onClick={() => toggleExpand(index)}
+              >
                   
                   {/* Header */}
                   <div className="flex flex-wrap justify-between items-start mb-4">
-                    <div>
+                    <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
                         <h3 className="text-xl font-semibold text-gray-900">
                           {exp.title}
@@ -100,6 +111,11 @@ export default function Experience() {
                             Current Position
                           </span>
                         )}
+                        <ChevronDown
+                          className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                            expandedIndex === index ? 'rotate-180' : ''
+                          }`}
+                        />
                       </div>
                       <div className="flex items-center gap-4 mt-1">
                         <span className="flex items-center text-blue-600 font-medium">
@@ -127,17 +143,27 @@ export default function Experience() {
                     </p>
                   )}
 
-                  {/* Description */}
-                  <ul className="space-y-2 mb-4">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="text-gray-600 text-sm leading-relaxed flex">
-                        <span className="text-blue-400 mr-2 mt-1.5">▸</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Achievement Badge */}
+                  {/* Collapsible Bullet Points */}
+                  <AnimatePresence>
+                    {expandedIndex === index && (
+                      <motion.ul
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="space-y-2 mb-4 overflow-hidden"
+                      >
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="text-gray-600 text-sm leading-relaxed flex">
+                            <span className="text-blue-400 mr-2 mt-1.5">▸</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Achievement Badge - Always Visible */}
                   {exp.achievement && (
                     <div className="mb-4">
                       <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-md">
@@ -145,8 +171,8 @@ export default function Experience() {
                       </span>
                     </div>
                   )}
-                  
-                  {/* Technologies */}
+
+                  {/* Technologies - Always Visible */}
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, i) => (
                       <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md">

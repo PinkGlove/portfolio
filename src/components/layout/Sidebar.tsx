@@ -41,7 +41,7 @@ export default function Sidebar() {
           </p>
           <div className="text-base text-gray-500 leading-relaxed max-w-xs space-y-2">
             <p>I build things.</p>
-            <p>Mostly full-stack web applications with Python, React, and cloud infrastructure.</p>
+            <p>End-to-end web applications with cloud infrastructure - frontend, backend, and everything in between.</p>
             <p>I like making systems faster and more reliable.</p>
           </div>
         </div>
