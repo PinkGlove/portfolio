@@ -27,8 +27,8 @@ export default function Sidebar() {
   };
 
   return (
-    <aside 
-      className="hidden lg:flex fixed left-0 top-0 h-screen w-[35%] min-w-[400px] bg-white border-r border-gray-200 z-10 items-center justify-center"
+    <aside
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-[35%] min-w-[400px] bg-white z-10 items-center justify-center"
     >
       <div className="flex flex-col h-full justify-between py-20 max-w-md">
         {/* Top Section - Name and Title */}

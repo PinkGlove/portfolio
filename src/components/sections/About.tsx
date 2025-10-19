@@ -5,27 +5,30 @@ import SectionWrapper from '@/components/common/SectionWrapper';
 
 export default function About() {
   return (
-    <SectionWrapper id="about" className="min-h-screen flex items-center">
+    <SectionWrapper id="about" className="lg:min-h-screen lg:flex lg:items-center">
       <div className="w-full">
+        {/* Mobile Title */}
+        <h2 className="lg:hidden text-xl sm:text-3xl font-bold text-gray-900 mb-8">About</h2>
+
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Bio Column - Takes 2 columns */}
           <div className="lg:col-span-2 space-y-6">
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Hello! I'm a passionate Full Stack Developer with a
-              Master's in Computer Science from <span className="text-blue-600 font-medium">Texas A&M University</span>
+            <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
+              Hello! I&apos;m a passionate Full Stack Developer with a
+              Master&apos;s in Computer Science from <span className="text-blue-600 font-medium">Texas A&M University</span>
               (<span className="text-blue-600 font-medium">3.94 GPA</span>).
             </p>
-            
-            <p className="text-lg text-gray-600 leading-relaxed">
+
+            <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
               My journey in tech started at the University of Twente in the Netherlands, where I graduated
-              <span className="text-blue-600 font-medium"> Cum Laude</span> with a Bachelor's in Technical Computer Science (3.93 GPA).
-              Since then, I've had the privilege of working at <span className="text-blue-600 font-medium">Tencent</span> (one of the world's largest tech companies),
+              <span className="text-blue-600 font-medium"> Cum Laude</span> with a Bachelor&apos;s in Technical Computer Science (3.93 GPA).
+              Since then, I&apos;ve had the privilege of working at <span className="text-blue-600 font-medium">Tencent</span> (one of the world&apos;s largest tech companies),
               a meteorological technology company, and currently as a
-              <span className="text-blue-600 font-medium"> Software Application Developer II</span> at <span className="text-blue-600 font-medium">Texas A&M's Veterinary Medical Diagnostic Laboratory</span>, processing 1M+ tests annually for clients across all 50 states.
+              <span className="text-blue-600 font-medium"> Software Application Developer II</span> at <span className="text-blue-600 font-medium">Texas A&M&apos;s Veterinary Medical Diagnostic Laboratory</span>, processing 1M+ tests annually for clients across all 50 states.
             </p>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
               I specialize in building <span className="text-blue-600 font-medium">complete end-to-end systems</span>, from intuitive frontends to secure
               backend infrastructure. My work includes event registration platforms with integrated
               PCI-compliant payment processing, automated data warehouses using AWS services, and
@@ -34,37 +37,37 @@ export default function About() {
             </p>
 
             {/* Quick Info Cards */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               <div className="p-4 bg-gray-50 rounded-lg">
                 <div className="flex items-center text-blue-600 mb-2">
                   <MapPin className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">Location</span>
+                  <span className="text-xs sm:text-sm font-medium">Location</span>
                 </div>
-                <p className="text-gray-700 font-medium">College Station, TX</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">College Station, TX</p>
               </div>
-              
+
               <div className="p-4 bg-gray-50 rounded-lg">
                 <div className="flex items-center text-blue-600 mb-2">
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">Status</span>
+                  <span className="text-xs sm:text-sm font-medium">Status</span>
                 </div>
-                <p className="text-gray-700 font-medium">Recent Graduate</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">Recent Graduate</p>
               </div>
-              
+
               <div className="p-4 bg-gray-50 rounded-lg">
                 <div className="flex items-center text-blue-600 mb-2">
                   <Briefcase className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">Current Role</span>
+                  <span className="text-xs sm:text-sm font-medium">Current Role</span>
                 </div>
-                <p className="text-gray-700 font-medium">Software Application Developer II</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">Software Application Developer II</p>
               </div>
-              
+
               <div className="p-4 bg-gray-50 rounded-lg">
                 <div className="flex items-center text-blue-600 mb-2">
                   <GraduationCap className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">Focus Areas</span>
+                  <span className="text-xs sm:text-sm font-medium">Focus Areas</span>
                 </div>
-                <p className="text-gray-700 font-medium">Full Stack & Data</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">Full Stack & Data</p>
               </div>
             </div>
           </div>
@@ -72,7 +75,7 @@ export default function About() {
           {/* Skills & Technologies Column */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Technologies I work with:</h3>
+              <h3 className="text-base sm:text-xl font-semibold text-gray-900 mb-4">Technologies I work with:</h3>
               
               <div className="space-y-4">
                 <div>

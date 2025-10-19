@@ -81,64 +81,87 @@ export default function Experience() {
   };
 
   return (
-    <SectionWrapper id="experience" className="min-h-screen">
+    <SectionWrapper id="experience" className="lg:min-h-screen">
       <div className="w-full">
         {/* Section Title */}
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">
+        <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-12">
           Experience
         </h2>
 
         {/* Experience Items */}
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="group">
               {/* Content Card */}
               <div
-                className="p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400
+                className="p-4 sm:p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400
                 hover:shadow-lg transition-all duration-300 cursor-pointer"
                 onClick={() => toggleExpand(index)}
               >
                   
                   {/* Header */}
-                  <div className="flex flex-wrap justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-1">
-                        <h3 className="text-xl font-semibold text-gray-900">
-                          {exp.title}
-                        </h3>
-                        {exp.current && (
-                          <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                            Current Position
-                          </span>
-                        )}
-                        <ChevronDown
-                          className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                            expandedIndex === index ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </div>
-                      <div className="flex items-center gap-4 mt-1">
-                        <span className="flex items-center text-blue-600 font-medium">
-                          <Building2 className="w-4 h-4 mr-1" />
-                          {exp.company}
-                        </span>
-                      </div>
+                  <div className="mb-3 sm:mb-4">
+                    {/* Title Row */}
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <h3 className="text-base sm:text-xl font-semibold text-gray-900 flex-1 min-w-0">
+                        {exp.title}
+                      </h3>
+                      <ChevronDown
+                        className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ${
+                          expandedIndex === index ? 'rotate-180' : ''
+                        }`}
+                      />
                     </div>
-                    <div className="flex flex-col items-end text-sm text-gray-500">
-                      <span className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {exp.date}
-                      </span>
-                      <span className="flex items-center mt-1">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {exp.location}
-                      </span>
+
+                    {/* Company, Date, Location - Responsive Layout */}
+                    <div className="space-y-1.5 sm:space-y-0">
+                      {/* Desktop: Company on left, Date & Location on right */}
+                      <div className="hidden sm:flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-1.5">
+                          <Building2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                          <span className="text-base text-blue-600 font-medium">
+                            {exp.company}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm text-gray-500">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4 flex-shrink-0" />
+                            <span>{exp.date}</span>
+                          </span>
+                          <span className="text-gray-300">•</span>
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                            <span>{exp.location}</span>
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Mobile: Company and Date/Location stacked */}
+                      <div className="sm:hidden">
+                        <div className="flex items-start gap-1.5 mb-1.5">
+                          <Building2 className="w-3 h-3 text-blue-600 flex-shrink-0 mt-1" />
+                          <span className="text-xs text-blue-600 font-medium leading-snug">
+                            {exp.company}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3 flex-shrink-0" />
+                            <span>{exp.date}</span>
+                          </span>
+                          <span className="text-gray-300">•</span>
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3 h-3 flex-shrink-0" />
+                            <span>{exp.location}</span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
                   {/* Summary */}
                   {exp.summary && (
-                    <p className="text-gray-600 leading-relaxed mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4">
                       {exp.summary}
                     </p>
                   )}
@@ -151,7 +174,7 @@ export default function Experience() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="space-y-2 mb-4 overflow-hidden"
+                        className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 overflow-hidden"
                       >
                         {exp.description.map((item, i) => (
                           <li key={i} className="text-gray-600 text-sm leading-relaxed flex">
@@ -165,9 +188,10 @@ export default function Experience() {
 
                   {/* Achievement Badge - Always Visible */}
                   {exp.achievement && (
-                    <div className="mb-4">
-                      <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-md">
-                        🎯 {exp.achievement}
+                    <div className="mb-3 sm:mb-4">
+                      <span className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 bg-blue-50 text-blue-700 text-xs sm:text-sm font-medium rounded-md">
+                        <span className="flex-shrink-0">🎯</span>
+                        <span>{exp.achievement}</span>
                       </span>
                     </div>
                   )}
