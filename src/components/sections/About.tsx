@@ -32,7 +32,7 @@ export default function About() {
               I specialize in building <span className="text-blue-600 font-medium">complete end-to-end systems</span>, from intuitive frontends to secure
               backend infrastructure. My work includes event registration platforms with integrated
               PCI-compliant payment processing, automated data warehouses using AWS services, and
-              real-time monitoring systems with alerting—delivering solutions that automate <span className="text-blue-600 font-medium">250+ hours</span>
+              real-time monitoring systems with alerting—delivering solutions that automate <span className="text-blue-600 font-medium">250+ hours</span> 
               of manual work annually and reduce fault detection time by <span className="text-blue-600 font-medium">99%</span>.
             </p>
 
