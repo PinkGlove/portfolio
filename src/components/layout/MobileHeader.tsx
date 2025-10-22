@@ -11,7 +11,7 @@ export default function MobileHeader() {
   // Email obfuscation
   const handleEmailClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const email = ['zinan', '.', 'guo', '@', 'gmail', '.', 'com'].join('');
+    const email = ['contact', '@', 'zinanguo', '.', 'com'].join('');
     window.open('mailto:' + email, '_blank');
   };
 

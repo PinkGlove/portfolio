@@ -22,7 +22,7 @@ export default function Sidebar() {
   // Email obfuscation to prevent spambots - opens in new tab
   const handleEmailClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const email = ['zinan', '.', 'guo', '@', 'gmail', '.', 'com'].join('');
+    const email = ['contact', '@', 'zinanguo', '.', 'com'].join('');
     window.open('mailto:' + email, '_blank');
   };
 
