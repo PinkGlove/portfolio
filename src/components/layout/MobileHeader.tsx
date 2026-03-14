@@ -26,7 +26,7 @@ export default function MobileHeader() {
       {/* Scrollable Bio and Social - Below Fixed Header */}
       <div className="lg:hidden px-8 sm:px-12 pt-[136px] pb-6">
         {/* Bio */}
-        <div className="text-sm sm:text-base text-gray-500 leading-relaxed space-y-2 mb-6">
+        <div className="text-sm sm:text-base text-gray-600 leading-relaxed space-y-2 mb-6">
           <p>I build things.</p>
           <p>End-to-end web applications with cloud infrastructure - frontend, backend, and everything in between.</p>
           <p>I like making systems faster and more reliable.</p>

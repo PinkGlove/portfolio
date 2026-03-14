@@ -33,7 +33,7 @@ const config: Config = {
         accent: "#10B981",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "Consolas", "Monaco", "monospace"],
       },
       animation: {

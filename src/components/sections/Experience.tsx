@@ -12,29 +12,27 @@ const experiences = [
     location: 'College Station, TX',
     date: 'Jul 2025 – Present',
     current: true,
-    summary: 'Leading development of a comprehensive Event Registration System with React/Vite frontend and Python/FastAPI backend, featuring PCI-compliant payment processing through Bluefin PayConex integration. Automated workflows that previously required 3-4 hours of manual processing per event, saving 100+ hours annually, while implementing CI/CD pipelines and database-level locking for concurrent registrations.',
+    summary: 'Built a full-stack event registration system (React/TypeScript, FastAPI, MySQL) with PCI-compliant payment processing via Bluefin PayConex, automating workflows that previously required 3–4 hours of manual processing per event (80% reduction, saving 100+ hours annually). Designed containerized deployment on Azure Container Apps with GitHub Actions CI/CD and implemented defense-in-depth security passing Campus Guard vulnerability scanning.',
     description: [
-      'Leading the development of a comprehensive Event Registration System using React/Vite frontend and Python/FastAPI backend, automating the registration workflow that previously required 3-4 hours of manual processing per event (80% reduction, saving 100+ hours annually).',
-      'Architecting secure PCI-compliant payment processing through Bluefin PayConex iFrame integration, implementing a 6-phase tokenized payment flow verified by payment security experts that safely handles sensitive payment data without storing card information.',
-      'Designing containerized microservices architecture using Docker and deploying to Azure Container Apps with automated CI/CD pipelines via GitHub Actions, reducing deployment time from manual 2-hour processes to automated 15-minute deployments.',
-      'Developing event capacity management system with SQLAlchemy ORM and MySQL database, implementing database-level locking mechanisms and Nginx load balancer with rate limiting to prevent double-booking and ensure system stability during concurrent registrations.',
-      'Implementing comprehensive security measures across the entire application stack, passing Campus Guard vulnerability scanning and meeting university IT security standards for production deployment.'
+      'Built a full-stack event registration system (React/TypeScript, FastAPI, MySQL) with multi-step registration, email verification, HTTP-only cookie sessions, and capacity-reserving timers, automating workflows that previously required 3–4 hours of manual processing per event (80% reduction, saving 100+ hours annually).',
+      'Engineered PCI-compliant payment processing using Bluefin PayConex iFrame tokenization, implementing a 3-phase lock management pattern that prevents double charges with retry logic, in-flight grace periods, and automated alerts for payment anomalies.',
+      'Designed containerized deployment with multi-stage Docker builds, Azure Container Apps with Nginx reverse proxy, Key Vault secrets via Managed Identity, and GitHub Actions CI/CD, reducing deployment from manual 2-hour processes to automated 15-minute pipelines.',
+      'Implemented defense-in-depth security including dual-token authentication, hardened CSP headers, PII masking, and input sanitization, passing Campus Guard vulnerability scanning and university IT security review.'
     ],
-    technologies: ['React', 'Vite', 'Python', 'FastAPI', 'Azure', 'Docker', 'GitHub Actions', 'MySQL', 'SQLAlchemy', 'Nginx'],
+    technologies: ['React', 'TypeScript', 'Python', 'FastAPI', 'MySQL', 'Azure', 'Docker', 'Nginx', 'GitHub Actions'],
     achievement: '80% faster registration processing, saving 100+ hours annually'
   },
   {
-    title: 'Student Assistant (Software Application Developer)',
+    title: 'Software Application Developer (Student Assistant)',
     company: 'Texas A&M Veterinary Medical Diagnostic Laboratory',
     location: 'College Station, TX',
     date: 'Oct 2024 – May 2025',
     current: false,
-    summary: 'Spearheaded the design and implementation of a comprehensive data warehouse solution using Python and AWS services (S3, Glue, Lambda) to automate the laboratory\'s financial reporting workflows. Built ETL processes that reduced report generation time from 3 hours to under 5 minutes (97% reduction), eliminating 150+ hours of annual manual work while enabling data-driven decision-making.',
+    summary: 'Spearheaded the design and implementation of a data warehouse solution using Python, MySQL, and AWS services (S3, Glue, Lambda) to automate laboratory financial reporting workflows. Reduced report generation time from 3 hours to under 5 minutes (97% reduction), eliminating 150+ hours of annual manual work. Built operational dashboards to inform leadership decision-making.',
     description: [
       'Spearheaded the design and implementation of a robust data warehouse solution to enhance the financial health monitoring of the laboratory, eliminating 150+ hours of annual manual reporting work.',
       'Developed and executed ETL processes using Python scripts, MySQL, and AWS services (S3, Glue, Lambda, etc.) to automate historical data integration workflows and generate automated data reports, reducing report generation time from 3 hours to under 5 minutes (97% reduction).',
-      'Utilized MySQL, Power Automate, and Power Apps to efficiently retrieve, store, and manage the comprehensive laboratory operational data.',
-      'Analyzed lab financial performance by transforming complex data into actionable insights, enabling informed, data-driven decision-making.'
+      'Built operational dashboards using MySQL, Power Automate, and Power Apps to track lab financial performance, transforming complex data into reports that informed leadership decision-making.'
     ],
     technologies: ['Python', 'MySQL', 'AWS', 'S3', 'Glue', 'Lambda', 'Power Automate', 'Power Apps', 'ETL'],
     achievement: '97% faster reporting and saved 150+ hours annually'
@@ -45,12 +43,11 @@ const experiences = [
     location: 'Shenzhen, China',
     date: 'May 2024 – Aug 2024',
     current: false,
-    summary: 'Designed and implemented a full-stack process monitoring system using Go/Gin with tRPC framework for the backend and Vue.js/TypeScript with TDesign Enterprise Design System for the frontend. The system enables real-time server process monitoring with automatic alerting, reducing fault detection time from 1-2 days to under 10 minutes and was adopted by Tencent\'s Technology Engineering Group.',
+    summary: 'Designed and implemented a full-stack process monitoring system (Go/Gin/tRPC backend, Vue.js/TypeScript frontend, MongoDB) with RESTful APIs, enabling real-time server process monitoring with automated alerts. Integrated automated server scanning with TGET dial testing tool. Adopted by Tencent\'s Technology Engineering Group, reducing fault detection time from 1–2 days to under 10 minutes.',
     description: [
-      'Designed and implemented a process monitoring system, enabling internal employees to monitor processes on the server and promptly receive alarms if their processes are terminated.',
-      'Utilized the TGET dial testing tool to verify whether a certain process is still running on the server, employed the Linux cmd client to automatically scan the existing processes on the server for users.',
-      'Utilized Go, Gin, and the tRPC framework in the backend, while employing Vue.js, TypeScript, and the TDesign Enterprise Design System in the frontend. Leveraged MongoDB to store all relevant process data and followed RESTful API design principles.',
-      'Adopted by the Technology Engineering Group of Tencent, significantly reduced the detection time of the fault caused by the termination of the process from 1-2 days to less than 10 minutes.'
+      'Designed and implemented a full-stack process monitoring system (Go/Gin/tRPC backend, Vue.js/TypeScript frontend, MongoDB) with RESTful APIs, enabling employees to track server processes in real time and receive automated alerts on unexpected terminations.',
+      'Integrated automated server scanning with the TGET dial testing tool to detect process failures, replacing a manual monitoring workflow that previously took 1–2 days to surface issues.',
+      'Adopted by the Technology Engineering Group of Tencent, reducing fault detection time from 1–2 days to under 10 minutes across production servers.'
     ],
     technologies: ['Go', 'Gin', 'Vue.js', 'TypeScript', 'MongoDB', 'tRPC', 'RESTful API'],
     achievement: 'Reduced fault detection time from 1-2 days to <10 minutes'
@@ -61,11 +58,10 @@ const experiences = [
     location: 'Beijing, China (Remote)',
     date: 'Jan 2024 – Apr 2024',
     current: false,
-    summary: 'Developed a Java/Spring Boot-based verification system to ensure meteorological data tile integrity using dual verification methodologies (metrics comparison and PNG visualization). Created customizable visualization tools for user-friendly map comparisons and integrated the system with Apache IoTDB, improving data discrepancy identification efficiency by 40% while significantly enhancing results clarity.',
+    summary: 'Designed and developed a Java/Spring Boot-based system to verify the integrity of meteorological data segmentation into tiles with RESTful API design. Devised dual verification methodologies combining metrics comparison and PNG visualization, and integrated with Apache IoTDB, improving data discrepancy identification efficiency by 40%.',
     description: [
       'Designed and developed a Java and Spring Boot-based system to verify the integrity of meteorological data segmentation into tiles, employed RESTful API design.',
-      'Devised dual verification methodologies, including metrics comparison and original map comparison via PNG visualization, to ensure data correctness.',
-      'Designed a tool to convert grid tiles into PNG format with customizable color tables, facilitating user-friendly comparison with the original meteorological map.',
+      'Devised dual verification methodologies combining metrics comparison and PNG visualization with customizable color tables, enabling side-by-side comparison of processed tiles against original meteorological maps.',
       'Integrated the verification system into the existing workflow with Apache IoTDB, increased efficiency in identifying data discrepancies by 40% and significantly enhanced clarity in results visualization.'
     ],
     technologies: ['Java', 'Spring Boot', 'Apache IoTDB', 'RESTful API', 'Data Visualization'],
@@ -96,7 +92,16 @@ export default function Experience() {
               <div
                 className="p-4 sm:p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400
                 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedIndex === index}
                 onClick={() => toggleExpand(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleExpand(index);
+                  }
+                }}
               >
                   
                   {/* Header */}

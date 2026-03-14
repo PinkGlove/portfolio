@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/common/SectionWrapper';
 
 export default function About() {
   return (
-    <SectionWrapper id="about" className="lg:min-h-screen lg:flex lg:items-center">
+    <SectionWrapper id="about" className="lg:min-h-screen lg:flex lg:items-center lg:pt-14">
       <div className="w-full">
         {/* Mobile Title */}
         <h2 className="lg:hidden text-xl sm:text-3xl font-bold text-gray-900 mb-8">About</h2>
@@ -42,7 +42,7 @@ export default function About() {
                   <MapPin className="w-4 h-4 mr-2" />
                   <span className="text-xs sm:text-sm font-medium">Location</span>
                 </div>
-                <p className="text-sm sm:text-base text-gray-700 font-medium">College Station, TX</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">Houston, TX</p>
               </div>
 
               <div className="p-4 bg-gray-50 rounded-lg">
@@ -50,7 +50,7 @@ export default function About() {
                   <Calendar className="w-4 h-4 mr-2" />
                   <span className="text-xs sm:text-sm font-medium">Status</span>
                 </div>
-                <p className="text-sm sm:text-base text-gray-700 font-medium">Recent Graduate</p>
+                <p className="text-sm sm:text-base text-gray-700 font-medium">M.S. CS, Texas A&M 2025</p>
               </div>
 
               <div className="p-4 bg-gray-50 rounded-lg">
@@ -80,7 +80,7 @@ export default function About() {
                 <div>
                   <p className="text-sm text-gray-500 mb-2">Languages</p>
                   <div className="flex flex-wrap gap-2">
-                    {['Python', 'Java', 'Go', 'TypeScript', 'JavaScript', 'SQL'].map((skill) => (
+                    {['Python', 'Java', 'Go', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL'].map((skill) => (
                       <span key={skill} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-md text-sm">
                         {skill}
                       </span>
@@ -89,9 +89,9 @@ export default function About() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-500 mb-2">Frontend & Frameworks</p>
+                  <p className="text-sm text-gray-500 mb-2">Frameworks & Libraries</p>
                   <div className="flex flex-wrap gap-2">
-                    {['React', 'Vue.js', 'Next.js', 'Angular', 'Tailwind CSS'].map((skill) => (
+                    {['React', 'Vue.js', 'Angular', 'Next.js', 'Django', 'Flask', 'FastAPI', 'Spring Boot', 'Node.js', 'Gin', 'tRPC', 'SQLAlchemy', 'Tailwind CSS'].map((skill) => (
                       <span key={skill} className="px-3 py-1 bg-green-50 text-green-700 rounded-md text-sm">
                         {skill}
                       </span>
@@ -100,15 +100,27 @@ export default function About() {
                 </div>
 
                 <div>
-                  <p className="text-sm text-gray-500 mb-2">Backend & Infrastructure</p>
+                  <p className="text-sm text-gray-500 mb-2">Databases & Cloud</p>
                   <div className="flex flex-wrap gap-2">
-                    {['FastAPI', 'Flask', 'Spring Boot', 'Gin', 'gRPC', 'SQLAlchemy', 'AWS', 'Azure', 'Docker', 'GitHub Actions', 'Nginx', 'MySQL', 'PostgreSQL', 'MongoDB'].map((skill) => (
+                    {['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Apache IoTDB', 'AWS', 'Azure', 'Docker', 'GitHub Actions', 'CI/CD', 'Nginx'].map((skill) => (
                       <span key={skill} className="px-3 py-1 bg-purple-50 text-purple-700 rounded-md text-sm">
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
+
+                <div>
+                  <p className="text-sm text-gray-500 mb-2">Tools & Technologies</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Git', 'Linux', 'Vite', 'Power Automate', 'Power Apps', 'Figma', 'Pytest', 'JUnit', 'Selenium', 'z3-solver'].map((skill) => (
+                      <span key={skill} className="px-3 py-1 bg-orange-50 text-orange-700 rounded-md text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

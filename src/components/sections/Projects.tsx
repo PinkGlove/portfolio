@@ -51,7 +51,16 @@ export default function Projects() {
               <div
                 className="p-4 sm:p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-400
                 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedIndex === index}
                 onClick={() => toggleExpand(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleExpand(index);
+                  }
+                }}
               >
                 
                 {/* Project Header */}

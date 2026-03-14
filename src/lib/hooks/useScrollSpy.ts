@@ -1,5 +1,43 @@
 import { useEffect, useState } from 'react';
 
+function throttle<T extends (...args: unknown[]) => void>(
+  fn: T,
+  delayMs: number
+): T & { cancel: () => void } {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  let lastRun = 0;
+
+  const throttled = (...args: unknown[]) => {
+    const now = Date.now();
+    const elapsed = now - lastRun;
+
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+
+    if (elapsed >= delayMs) {
+      lastRun = now;
+      fn(...args);
+    } else {
+      timeoutId = setTimeout(() => {
+        lastRun = Date.now();
+        timeoutId = null;
+        fn(...args);
+      }, delayMs - elapsed);
+    }
+  };
+
+  throttled.cancel = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+  };
+
+  return throttled as T & { cancel: () => void };
+}
+
 export function useScrollSpy(ids: string[], offset: number = 100) {
   const [activeId, setActiveId] = useState<string>('');
 
@@ -25,13 +63,18 @@ export function useScrollSpy(ids: string[], offset: number = 100) {
       setActiveId(position?.id || '');
     };
 
+    const throttledScroll = throttle(listener, 100);
+    const throttledResize = throttle(listener, 200);
+
     listener();
-    window.addEventListener('scroll', listener);
-    window.addEventListener('resize', listener);
+    window.addEventListener('scroll', throttledScroll);
+    window.addEventListener('resize', throttledResize);
 
     return () => {
-      window.removeEventListener('scroll', listener);
-      window.removeEventListener('resize', listener);
+      window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', throttledResize);
+      throttledScroll.cancel();
+      throttledResize.cancel();
     };
   }, [ids, offset]);
 

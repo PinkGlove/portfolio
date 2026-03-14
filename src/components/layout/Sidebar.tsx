@@ -39,7 +39,7 @@ export default function Sidebar() {
           <p className="text-xl text-gray-700 mb-6">
             Full Stack Developer
           </p>
-          <div className="text-base text-gray-500 leading-relaxed max-w-xs space-y-2">
+          <div className="text-base text-gray-600 leading-relaxed max-w-xs space-y-2">
             <p>I build things.</p>
             <p>End-to-end web applications with cloud infrastructure - frontend, backend, and everything in between.</p>
             <p>I like making systems faster and more reliable.</p>
@@ -53,7 +53,7 @@ export default function Sidebar() {
               <li key={item.name} className={index !== navigationItems.length - 1 ? 'mb-8' : ''}>
                 <a
                   href={item.href}
-                  className={`group flex items-center py-1 transition-all duration-200 ${
+                  className={`group flex items-center py-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     activeSection === item.id
                       ? 'text-blue-600'
                       : 'text-gray-500 hover:text-gray-900'
